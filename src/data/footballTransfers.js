@@ -1,8 +1,12 @@
 /**
- * ⚠️ ILLUSTRATIVE PLACEHOLDER DATA — NOT VERIFIED TRANSFER FIGURES.
+ * ⚠️ MOSTLY ILLUSTRATIVE PLACEHOLDER DATA — NOT VERIFIED TRANSFER FIGURES.
  *
  * Real transfer fees are public and stable, so this dataset is easy to
  * replace with accurate numbers. Values are in EUR million.
+ *
+ * Exception: the 2026 entries near the bottom (tf-45 onward) are real,
+ * sourced transfers from the summer 2026 window, cross-checked against
+ * multiple outlets — see the comment above that block.
  */
 
 export const PLACEHOLDER = true
@@ -52,4 +56,21 @@ export const transfers = [
   { id: 'tf-42', player: 'Andre Onana',       year: 2023, from: 'Inter Milan',    to: 'Manchester United',   position: 'Goalkeeper', million: 50, emoji: '🧤' },
   { id: 'tf-43', player: 'Ederson',           year: 2017, from: 'Benfica',        to: 'Manchester City',     position: 'Goalkeeper', million: 40, emoji: '🧤' },
   { id: 'tf-44', player: 'Robert Lewandowski', year: 2022, from: 'Bayern Munich', to: 'Barcelona',           position: 'Forward',    million: 45, emoji: '⚽' },
+  // Summer 2026 window (closed ~Sep 1, 2026) — fees cross-checked against
+  // Football365's deals-of-the-window list and ESPN's transfer grading
+  // roundup; not placeholder, but "reported fee" still varies a few million
+  // EUR between outlets depending on add-ons.
+  { id: 'tf-45', player: 'Enzo Fernandez',    year: 2026, from: 'Chelsea',            to: 'Manchester City',     position: 'Midfielder', million: 145, emoji: '🎯' },
+  { id: 'tf-46', player: 'Morgan Rogers',     year: 2026, from: 'Aston Villa',        to: 'Chelsea',             position: 'Forward',    million: 136, emoji: '⚽' },
+  { id: 'tf-47', player: 'Yan Diomande',      year: 2026, from: 'RB Leipzig',         to: 'Real Madrid',         position: 'Winger',     million: 130, emoji: '🏃' },
+  { id: 'tf-48', player: 'Bradley Barcola',   year: 2026, from: 'Paris Saint-Germain', to: 'Liverpool',          position: 'Forward',    million: 123, emoji: '⚽' },
+  { id: 'tf-49', player: 'Sandro Tonali',     year: 2026, from: 'Newcastle United',   to: 'Tottenham',           position: 'Midfielder', million: 108, emoji: '🎯' },
+  { id: 'tf-50', player: 'Savio',             year: 2026, from: 'Manchester City',    to: 'Tottenham',           position: 'Winger',     million: 90,  emoji: '🏃' },
+  { id: 'tf-51', player: 'Bruno Guimaraes',   year: 2026, from: 'Newcastle United',   to: 'Arsenal',             position: 'Midfielder', million: 87,  emoji: '🎯' },
+  { id: 'tf-52', player: 'Goncalo Ramos',     year: 2026, from: 'Paris Saint-Germain', to: 'AC Milan',           position: 'Forward',    million: 70,  emoji: '⚽' },
+  { id: 'tf-53', player: 'Anthony Gordon',    year: 2026, from: 'Newcastle United',   to: 'Barcelona',           position: 'Winger',     million: 70,  emoji: '🏃' },
+  { id: 'tf-54', player: 'Ferran Torres',     year: 2026, from: 'Barcelona',          to: 'Paris Saint-Germain', position: 'Forward',    million: 50,  emoji: '⚽' },
+  { id: 'tf-55', player: 'Rodri',             year: 2026, from: 'Manchester City',    to: 'Barcelona',           position: 'Midfielder', million: 60,  emoji: '🎯' },
+  { id: 'tf-56', player: 'Cristian Romero',   year: 2026, from: 'Tottenham',          to: 'Atletico Madrid',     position: 'Defender',   million: 40,  emoji: '🛡️' },
+  { id: 'tf-57', player: 'Curtis Jones',      year: 2026, from: 'Liverpool',          to: 'Inter Milan',         position: 'Midfielder', million: 35,  emoji: '🎯' },
 ]
