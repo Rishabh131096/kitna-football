@@ -15,7 +15,8 @@ There is no test suite, linter, or type checker configured in this repo.
 
 Deploys automatically to GitHub Pages on every push to `main` via
 [.github/workflows/deploy.yml](.github/workflows/deploy.yml) (`npm ci && npm run build`, publishes `dist/`).
-The Vite `base` is hardcoded to `/kitna-football/` in [vite.config.js](vite.config.js) — keep that in sync with the Pages repo name.
+Served on the custom domain `kitnafootball.com` (via [public/CNAME](public/CNAME), copied into `dist/` on build), so the Vite
+`base` in [vite.config.js](vite.config.js) is `/` (root) rather than a repo-name subpath.
 
 ## What this is
 
