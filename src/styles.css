@@ -337,6 +337,30 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .over__stat-value { font-size: 20px; font-weight: 700; font-variant-numeric: tabular-nums; }
 .over__stat-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); }
 
+.over__share { max-width: 300px; margin-bottom: 14px; }
+
+.over__submit { line-height: 1.35; }
+.over__submit--elite {
+  background: linear-gradient(135deg, var(--accent), color-mix(in srgb, var(--accent) 55%, white));
+  color: #fff; font-weight: 800;
+  animation: submitPulse 1.6s ease-in-out infinite;
+}
+.over__submit--great {
+  background: color-mix(in srgb, var(--accent) 20%, transparent);
+  color: var(--accent); font-weight: 750;
+  border: 1.5px solid var(--accent);
+}
+.over__submit--good {
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+  color: var(--accent);
+  border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+}
+
+@keyframes submitPulse {
+  0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 50%, transparent); }
+  50% { box-shadow: 0 0 16px 4px color-mix(in srgb, var(--accent) 35%, transparent); }
+}
+
 .over__actions { display: flex; flex-direction: column; gap: 10px; width: 100%; max-width: 300px; margin-top: 8px; }
 
 .over__leaderboard { width: 100%; max-width: 320px; margin: 20px 0 4px; }
@@ -410,6 +434,22 @@ button { font: inherit; color: inherit; cursor: pointer; }
 }
 .lb-overlay__close { background: none; border: 0; color: var(--muted); font-size: 16px; padding: 4px; }
 .lb-overlay__close:hover { color: var(--text); }
+
+/* ----------------------------- share card ---------------------------- */
+
+.share-card { max-width: 320px; }
+.share-card__image {
+  width: 100%; border-radius: 14px; display: block;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+}
+.share-card__motivate {
+  font-size: 12.5px; line-height: 1.4; text-align: center;
+  color: var(--accent); background: color-mix(in srgb, var(--accent) 12%, transparent);
+  border-radius: 10px; padding: 9px 12px; margin: 12px 0 0;
+}
+.share-card__hint { font-size: 12.5px; line-height: 1.4; color: var(--muted); margin: 12px 0 14px; text-align: center; }
+.share-card__actions { display: flex; gap: 10px; }
+.share-card__actions .btn { flex: 1; }
 
 @keyframes fadeIn {
   from { opacity: 0; }

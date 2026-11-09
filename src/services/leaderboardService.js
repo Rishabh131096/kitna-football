@@ -8,6 +8,8 @@
 
 import { supabase, ensureAnonSession } from '../lib/supabaseClient.js'
 
+const todayIST = () => new Date().toLocaleDateString('en-CA', { timeZone: 'Asia/Kolkata' })
+
 export async function ensurePlayer(nickname) {
   const session = await ensureAnonSession()
   if (!session) return { ok: false }
@@ -39,10 +41,32 @@ export async function submitScore(gameId, score) {
   return { ok: true }
 }
 
+/** Today's rank for `score`: count of strictly-higher scores today, plus one.
+ * Cheap enough as two head-only counts; no RPC/migration needed since
+ * `scores_select_all` already permits public reads. */
+export async function getRank(gameId, score) {
+  if (!supabase) return { ok: false }
+
+  const today = todayIST()
+  const base = () => supabase.from('scores').select('*', { count: 'exact', head: true }).eq('game_id', gameId).eq('play_date', today)
+
+  const [{ count: ahead, error: aheadError }, { count: total, error: totalError }] = await Promise.all([
+    base().gt('score', score),
+    base(),
+  ])
+
+  if (aheadError || totalError) {
+    if (import.meta.env.DEV) console.debug('[leaderboard] getRank failed', aheadError ?? totalError)
+    return { ok: false }
+  }
+
+  return { ok: true, rank: ahead + 1, total }
+}
+
 export async function getLeaderboard(gameId, { limit = 20 } = {}) {
   if (!supabase) return { ok: false, entries: [] }
 
-  const today = new Date().toLocaleDateString('en-CA', { timeZone: 'Asia/Kolkata' })
+  const today = todayIST()
 
   const { data, error } = await supabase
     .from('scores')
